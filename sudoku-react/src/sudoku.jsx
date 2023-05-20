@@ -30,6 +30,22 @@ const Sodoku = ()=>{
 
         // check if any rows are invalid, if case send request to paint wrong boxes
         const check_for_invalid_row = ()=>{
+            for (let index = 0; index < changeable_values.length; index++) {
+                const value_arr = changeable_values[index];
+                easy_arr[value_arr[0]][value_arr[1]] = value_arr[2]
+            }
+            console.log(easy_arr)
+
+            const toFindDuplicates = arry => arry.filter((item, index) => arr.indexOf(item) !== index)
+
+            let is_invalid = false
+            // check row
+            for (let index = 0; index < easy_arr.length; index++) {
+                const arry = easy_arr[index];
+                if (tofindDuplicates(arry)){
+                    is_invalid = true
+                }
+            }
             
         }
 
@@ -49,6 +65,7 @@ const Sodoku = ()=>{
                         set_update_state(!update_state)
                     }   
                 }
+                check_for_invalid_row()
             }
 
             const handle_click = ()=>{
